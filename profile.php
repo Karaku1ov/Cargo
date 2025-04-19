@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 try {
-    $stmt = $pdo->prepare("SELECT first_name, last_name, email, city, street, house FROM clients WHERE id = ?");
+    $stmt = $pdo->prepare("SELECT first_name, last_name, email, city, street, house, phone FROM clients WHERE id = ?");
     $stmt->execute([$user_id]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -82,6 +82,10 @@ try {
                             <input type="email" class="form-control" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>">
                         </div>
                         <div class="col-md-6">
+                            <label for="phone" class="form-label">Телефон</label>
+                            <input type="text" class="form-control" id="phone" name="phone" value="<?= htmlspecialchars($user['phone'] ?? '') ?>">
+                        </div>
+                        <div class="col-md-6">
                             <label for="city" class="form-label">Город</label>
                             <input type="text" class="form-control" id="city" name="city" value="<?= htmlspecialchars($user['city'] ?? '') ?>">
                         </div>
@@ -101,6 +105,7 @@ try {
                     <p><strong>Город:</strong> <?= htmlspecialchars($user['city'] ?? 'Не указан') ?></p>
                     <p><strong>Улица:</strong> <?= htmlspecialchars($user['street'] ?? 'Не указана') ?></p>
                     <p><strong>Дом:</strong> <?= htmlspecialchars($user['house'] ?? 'Не указан') ?></p>
+                    <p><strong>Телефон:</strong> <?= htmlspecialchars($user['phone'] ?? 'Не указан') ?></p>
                 </div>
             </div>
         </div>

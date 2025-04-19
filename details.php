@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'blocks/header.php';
-include 'functions.php';
+include 'blocks/functions.php';
 
 $serviceId = $_GET['service'] ?? null;
 if (!$serviceId) {

@@ -1,7 +1,5 @@
 <?php
-$passwords = ['password123', 'pass456', 'pass789'];
-foreach ($passwords as $password) {
-    $hashed = password_hash($password, PASSWORD_DEFAULT);
-    echo "Пароль: $password -> Хеш: $hashed\n";
-}
+$password = 'adminpass456'; // Пароль для нового админа
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+echo "Хешированный пароль: $hashed_password\n";
 ?>

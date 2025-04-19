@@ -25,7 +25,7 @@ require 'db.php';
                 $message = $_POST['message'] ?? '';
 
                 if (!empty($email) && !empty($message)) {
-                    $stmt = $pdo->prepare("SELECT id FROM users WHERE email = :email");
+                    $stmt = $pdo->prepare("SELECT id FROM clients WHERE email = :email");
                     $stmt->execute(['email' => $email]);
                     $user = $stmt->fetch();
 

@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once '../db.php';
-
 // Проверка, что пользователь является администратором
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header('Location: ../auth.php');
@@ -25,7 +24,8 @@ try {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <?php require '../blocks/header.php'; ?>
+    <?php require"header.php"; 
+ ?>
 
     <div class="container mt-5">
         <h2>Список пользователей</h2>

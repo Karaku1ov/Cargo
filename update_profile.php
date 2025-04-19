@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $first_name = trim($_POST['first_name']);
     $last_name = trim($_POST['last_name']);
     $email = trim($_POST['email']);
+    $phone = trim($_POST['phone']); // <-- Добавлено
     $city = trim($_POST['city']);
     $street = trim($_POST['street']);
     $house = trim($_POST['house']);
@@ -23,8 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     try {
-        $stmt = $pdo->prepare("UPDATE clients SET first_name = ?, last_name = ?, email = ?, city = ?, street = ?, house = ? WHERE id = ?");
-        $stmt->execute([$first_name, $last_name, $email, $city, $street, $house, $user_id]);
+        $stmt = $pdo->prepare("
+            UPDATE clients 
+            SET first_name = ?, last_name = ?, email = ?, phone = ?, city = ?, street = ?, house = ?
+            WHERE id = ?
+        ");
+        $stmt->execute([$first_name, $last_name, $email, $phone, $city, $street, $house, $user_id]);
+
         $_SESSION['success'] = "Профиль успешно обновлён.";
         header("Location: profile.php");
         exit();

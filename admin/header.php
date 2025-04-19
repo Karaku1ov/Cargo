@@ -31,15 +31,14 @@ require_once 'functions.php'; // Подключаем массив услуг
                     <li class="nav-item"><a class="nav-link" href="index.php">Главная</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.php">О нас</a></li>
                     <?php if (isset($_SESSION['user_id'])): ?>
-                        <li class="nav-item"><a class="nav-link" href="profile.php">Личный кабинет</a></li>
-                        <li class="nav-item"><a class="nav-link" href="request.php">Запрос на доставку</a></li>
+                
                         <li class="nav-item"><a class="nav-link" href="logout.php">Выйти</a></li>
                     <?php else: ?>
                         <li class="nav-item"><a class="nav-link" href="register.php">Регистрация</a></li>
                         <li class="nav-item"><a class="nav-link" href="auth.php">Вход</a></li>
                     <?php endif; ?>
                     <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-                        <li class="nav-item"><a class="nav-link" href="admin/index.php">Админ-панель</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php">Админ-панель</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
